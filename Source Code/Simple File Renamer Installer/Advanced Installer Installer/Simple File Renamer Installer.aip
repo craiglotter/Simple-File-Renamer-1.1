@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DOCUMENT type="Advanced Installer" version="1.9" modules="professional" RootPath=".">
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiPropsComponent">
+    <ROW Property="CTRLS" Value="2"/>
+    <ROW Property="ProductName" Value="Simple File Renamer 1.1"/>
+    <ROW Property="ALLUSERS" Value="2"/>
+    <ROW Property="ARPCONTACT" Value="0833085018"/>
+    <ROW Property="BannerBitmap" Value="installer_background.jpg"/>
+    <ROW Property="ProductVersion" Value="1.1.0"/>
+    <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS"/>
+    <ROW Property="UpgradeCode" Value="{141ED4CF-0AAE-44C3-8B80-BE9E90256220}"/>
+    <ROW Property="ProductCode" Value="{6F1BC4C2-E57A-4094-B4FB-CFC07253D1DA}"/>
+    <ROW Property="ARPPRODUCTICON" Value="controlPanelIcon_1.exe"/>
+    <ROW Property="DialogBitmap" Value="installer_background_dialog.jpg"/>
+    <ROW Property="Manufacturer" Value="Craig Lotter"/>
+    <ROW Property="ProductLanguage" Value="1033"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiDirsComponent">
+    <ROW Directory="Help_DIR" Directory_Parent="TARGETDIR" DefaultDir="Help"/>
+    <ROW Directory="SHORTCUTDIR" Directory_Parent="TARGETDIR" DefaultDir="SHORTC~1|SHORTCUTDIR" IsPseudoRoot="1"/>
+    <ROW Directory="TARGETDIR" Directory_Parent="" DefaultDir="SourceDir"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+    <ROW Component="Background_Image_Log_File.jpg" ComponentId="{2A45C564-70B4-4D39-964C-910A33C44E51}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Background_Image_Log_File.jpg" FullKeyPath="TARGETDIR"/>
+    <ROW Component="Help.rtf" ComponentId="{1EA1E43B-1210-4621-A551-E79D8102331D}" Directory_="Help_DIR" Attributes="0" Condition="" KeyPath="Help.rtf" FullKeyPath="TARGETDIR\Help"/>
+    <ROW Component="Simple_File_Renamer.exe" ComponentId="{CEAFEDAC-32A6-4930-9C88-2705EDE370B5}" Directory_="TARGETDIR" Attributes="0" Condition="" KeyPath="Simple_File_Renamer.exe" FullKeyPath="TARGETDIR\Simple File Renamer.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFeatsComponent">
+    <ROW Feature="MainFeature" Feature_Parent="" Title="MainFeature" Description="Description" Display="2" Level="1" Directory_="TARGETDIR" Attributes="0" Components="Background_Image_Log_File.jpg Simple_File_Renamer.exe Help.rtf"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiFilesComponent">
+    <ROW File="Background_Image_Log_File.jpg" Component_="Background_Image_Log_File.jpg" FileName="Backgr~1.jpg|Background_Image_Log_File.jpg" Version="" Language="" Attributes="" SourcePath="..\..\Simple File Renamer 1.1.0\Images\Background_Image_Log_File.jpg" SelfReg="false"/>
+    <ROW File="Help.rtf" Component_="Help.rtf" FileName="Help.rtf" Version="" Language="" Attributes="" SourcePath="..\..\Simple File Renamer 1.1.0\Help\Help.rtf" SelfReg="false"/>
+    <ROW File="Simple_File_Renamer.exe" Component_="Simple_File_Renamer.exe" FileName="Simple~1.exe|Simple File Renamer.exe" Version="" Language="" Attributes="" SourcePath="..\..\Simple File Renamer 1.1.0\obj\Release\Simple File Renamer.exe" SelfReg="false"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiCustActComponent">
+    <ROW Action="AI_LaunchApp" Type="194" Source="viewer.exe" Target="[#Simple_File_Renamer.exe]"/>
+    <ROW Action="SET_SHORTCUTDIR" Type="307" Source="SHORTCUTDIR" Target="[ProgramMenuFolder][ProductName]"/>
+    <ROW Action="SET_TARGETDIR" Type="307" Source="TARGETDIR" Target="[ProgramFilesFolder]\[ProductName]"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiUpgradeComponent">
+    <ROW UpgradeCode="UpgradeCode" VersionMin="" VersionMax="ProductVersion" Language="" Attributes="1025" Remove=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMergeModsComponent">
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiShortsComponent">
+    <ROW Shortcut="Simple_File_Renamer_1.1" Directory_="SHORTCUTDIR" Name="Simple~1.1|Simple File Renamer 1.1" Component_="Background_Image_Log_File.jpg" Target="[TARGETDIR]\Simple File Renamer.exe" Arguments="" Description="Simple File Renamer 1.0 is a small program that allows you to rename a number of files based on a simple case-sensitive search and replace operation." Hotkey="0" Icon_="controlPanelIcon_1.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+    <ROW Shortcut="Uninstall_Simple_File_Renamer_1.1" Directory_="SHORTCUTDIR" Name="Uninst~1.1|Uninstall Simple File Renamer 1.1" Component_="Background_Image_Log_File.jpg" Target="[SystemFolder]msiexec.exe" Arguments="/x [ProductCode]" Description="" Hotkey="0" Icon_="SystemFolder_msiexec.exe" IconIndex="0" ShowCmd="1" WkDir=""/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiIconsComponent">
+    <ROW Name="SystemFolder_msiexec.exe" SourcePath="&lt;uninstall.ico&gt;" Index="0"/>
+    <ROW Name="controlPanelIcon_1.exe" SourcePath="..\..\Simple File Renamer 1.1.0\Images\FileRenamer.ico" Index="0"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiBinaryComponent">
+    <ROW Name="installer_background.jpg" SourcePath="Images\installer_background.jpg"/>
+    <ROW Name="installer_background_dialog.jpg" SourcePath="Images\installer_background_dialog.jpg"/>
+    <ROW Name="viewer.exe" SourcePath="&lt;viewer.exe&gt;"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiInstallUISequenceComponent">
+    <ATTRIBUTE name="Start" value="WelcomeDlg FolderDlg VerifyReadyDlg"/>
+    <ATTRIBUTE name="Progress" value="ProgressDlg"/>
+    <ATTRIBUTE name="End" value="ExitDialog"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.PreReqComponent">
+    <ROW DisplayName=".NET Framework" SetupFileUrl="http://www.microsoft.com/downloads/details.aspx?FamilyID=262d25e3-f589-4842-8157-034d1e7cf3a3&amp;displaylang=en" Location="1" ExactSize="23698" TargetOS="2" SearchType="0" SearchString="[SystemFolder]mscoree.dll" VerMin="1.0" VerMax="" ComLine="dotnetfx.exe"/>
+  </COMPONENT>
+  <COMPONENT cid="caphyon.advinst.msicomp.MsiMediaComponent">
+    <ATTRIBUTE name="InstallationType" value="1"/>
+    <ATTRIBUTE name="MediaSize" value="0"/>
+    <ATTRIBUTE name="Compress" value="1"/>
+    <ATTRIBUTE name="Package" value="6"/>
+    <ATTRIBUTE name="PackageName" value="Release\Simple File Renamer Installer"/>
+    <ATTRIBUTE name="IconPath" value="..\..\Simple File Renamer 1.1.0\Images\FileRenamer.ico?0"/>
+  </COMPONENT>
+</DOCUMENT>
